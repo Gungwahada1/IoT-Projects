@@ -1,21 +1,25 @@
 /*-------------------------------------------*/
+// Including library
 #include <ESP8266WiFi.h>
 #include <BlynkSimpleEsp8266.h>
 
+// Initialize Serial and timer from Blynk
 #define BLYNK_PRINT Serial
 BlynkTimer timer;
 /*-------------------------------------------*/
 
 /*-------------------------------------------*/
-char auth[] = "k_NxgXeF89WeaS3pVYphLGpVaI84VkUI";
-char ssid[] = "Gungwah ada berapa?";
-char pass[] = "Gungwahada1";
+// Initialize Blynk Auth Token, SSID, and Password
+char auth[] = "Your_Blynk_Auth_Token";
+char ssid[] = "Your_Credential_Ssid";
+char pass[] = "Your_Credential_Password";
 /*-------------------------------------------*/
 
-const int pirPin = 14;   // D5
-const int doorPin = 12;  // D6
+const int pirPin = 14;   // Initialize PirPin from GPIO 14 or D5 pin
+const int doorPin = 12;  // Initialize doorPin from GPIO 12 or D6 pin
 
 /*-------------------------------------------*/
+// Set all of state and function for know Door State
 bool changeState = false;
 bool state;
 String doorState;
@@ -31,11 +35,13 @@ ICACHE_RAM_ATTR void changeDoorStatus() {
 /*-------------------------------------------*/
 
 void setup() {
-  // put your setup code here, to run once:
+  // Initialize baudrate
   Serial.begin(9600);
 
+  // Start Blynk with auth, ssid, pass
   Blynk.begin(auth, ssid, pass, "blynk.cloud", 80);
 
+  // Set doorPin as INPUT_PULLUP
   pinMode(doorPin, INPUT_PULLUP);
   state = digitalRead(doorPin);
   attachInterrupt(digitalPinToInterrupt(doorPin), changeDoorStatus, CHANGE);
@@ -83,7 +89,7 @@ void checkMotionState() {
   if (motionState) {
     Serial.println("Gerak Terdeteksi");
     message = "Gerak Terdeteksi";
-    statusLED = 1;    
+    statusLED = 1;
     Blynk.logEvent("pirmotion", "WARNING! Terdeteksi Gerakan!");
   } else {
     Serial.println("Tidak Terdeteksi Gerak");

@@ -1,28 +1,3 @@
-/*==========================================================================================
-  {
-    "name":"Project #2 --> Monitoring Light State with Relay, Blynk and ESP8266",
-    "description":"Monitoring light state with relay, Blynk and ESP8266.",
-    "keywords":"Communication,Blynk,LightSensor,Relay,ArduinoIDE,ESP32,ESP8266",
-    "authors":
-    {
-      "name": "Gungwah <gungwahada1@gmail.com>",
-      "telegram": "https://t.me/agungsemaraa"
-      "instagram": "https://www.instagram.com/agungsemaraa"
-    },
-    "repository":
-    {
-      "type": "git",
-      "url": "https://github.com/Gungwahada1/IoT_Projects",
-    },
-    "version":
-    {
-      "Blynk": "1.2.0",
-      "esp32": "2.0.7",
-      "esp8266": "3.1.1",
-    }
-  }
-==========================================================================================*/
-
 /*-------------------------------------------*/
 // Include library file
 #include <ESP8266WiFi.h>
@@ -35,14 +10,14 @@ BlynkTimer timer;
 
 /*-------------------------------------------*/
 // Set your auth token from Blynk and your credentials
-char auth[] = "OWCNAvK6aFn4VLJ9EIcd79rbDAwou39Q";
-char ssid[] = "Gungwah ada berapa?";
-char pass[] = "Gungwahada1";
+char auth[] = "Your_Blynk_Auth_Token";
+char ssid[] = "Your_Credential_Ssid";
+char pass[] = "Your_Credential_Password";
 /*-------------------------------------------*/
 
 // Initialize pin for LDR sensor, Magnetic Door Sensor, and relay
-const int ldrPin = 14;   // D5
-const int relay = 5;     // D1
+const int ldrPin = 14;  // D5
+const int relay = 5;    // D1
 
 // To control relay
 #define hidup LOW

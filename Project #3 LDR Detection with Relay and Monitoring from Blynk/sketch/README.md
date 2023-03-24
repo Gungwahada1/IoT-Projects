@@ -1,5 +1,5 @@
 
-# Project #1 Control Relay via Telegram
+# Project #3 LDR Detection with Relay and Monitoring from Blynk
 
 
 ## Run Locally
@@ -15,31 +15,25 @@ Clone the project
 Go to the project directory
 
 ```bash
-  Project #1 Control Relay via Telegram
+  Project #3 LDR Detection with Relay and Monitoring from Blynk
 ```
 
 Install Library :
 ```bash
-  => UniversalTelegramBot
-  => ArduinoJson
+  => Blynk
 ```
 
-If use ESP32 :
+Set Pin :
 ```bash
-  Connect relay to GPIO 15
-```
-
-If use ESP8266 :
-```bash
+  Connect ldrPin to pin D5 or GPIO 14
   Connect relay to pin D1 or GPIO 5
 ```
 
-Set your credentials, token, and chat ID :
+Set your credentials and auth token :
 ```bash
-  #define SSID_Name "Your_Credential_Ssid"        // Inizialize name of SSID  
-  #define PASSWORD "Your_Credential_Password"     // Inizialize Password
-  #define BOTtoken "Token_Http_API_Bot"           // Inizialize Token Bot Telegram from BotFather
-  #define CHAT_ID "Chat_Id"                       // Inizialize User Chat ID from IDBOT
+  char auth[] = "Your_Blynk_Auth_Token";
+  char ssid[] = "Your_Credential_Ssid";
+  char pass[] = "Your_Credential_Password";
 ```
 And Let's Try!
 ## 🚀 About Me
